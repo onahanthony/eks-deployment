@@ -22,11 +22,11 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl destroy -f nginx-deployment.yaml"
-                        sh "kubectl destroy -f nginx-service.yaml"
-                        sh "kubectl destroy -f mongo.yaml"
-                        sh "kubectl destory -f knote.yaml"
-                        sh "kubectl destroy -f complete-demo.yaml"
+                        sh "kubectl delete -f nginx-deployment.yaml"
+                        sh "kubectl delete -f nginx-service.yaml"
+                        sh "kubectl delete -f mongo.yaml"
+                        sh "kubectl delete -f knote.yaml"
+                        sh "kubectl delete -f complete-demo.yaml"
                     }
                 }
             }
