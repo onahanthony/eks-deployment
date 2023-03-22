@@ -65,15 +65,12 @@ metadata:
     name: carts
   namespace: sock-shop
 spec:
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    targetPort: 80
   selector:
     name: carts
-  ports:
-  - name: http
-    port: 80
-    targetPort: 80
-    protocol: TCP
-  type: LoadBalancer
-
 ---
 apiVersion: apps/v1
 kind: Deployment
