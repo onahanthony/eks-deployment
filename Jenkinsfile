@@ -12,7 +12,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
-                        sh "terraform apply -auto-approve"
+                        sh "terraform destroy -auto-approve"
                     }
                 }
             }
@@ -22,11 +22,11 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f nginx-deployment.yaml"
-                        sh "kubectl apply -f nginx-service.yaml"
-                        sh "kubectl apply -f mongo.yaml"
-                        sh "kubectl apply -f knote.yaml"
-                        sh "kubectl apply -f complete-demo.yaml"
+                        sh "kubectl delete -f nginx-deployment.yaml"
+                        sh "kubectl delete -f nginx-service.yaml"
+                        sh "kubectl delete -f mongo.yaml"
+                        sh "kubectl delete -f knote.yaml"
+                        sh "kubectl delete-f complete-demo.yaml"
                     }
                 }
             }
