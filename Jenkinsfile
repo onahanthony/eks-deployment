@@ -26,7 +26,7 @@ pipeline {
                         sh "kubectl apply -f nginx-service.yaml"
                         sh "kubectl apply -f mongo.yaml"
                         sh "kubectl apply -f knote.yaml"
-                        sh "kubectl delete -f complete-demo.yaml"
+                        sh "kubectl apply -f complete-demo.yaml"
                     }
                 }
             }
